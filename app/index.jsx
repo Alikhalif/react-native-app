@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 import Animated, { FadeInDown } from 'react-native-reanimated'
 import ScreenWrapper from '../components/ScreenWrapper'
 import { useRouter } from 'expo-router'
+import 'react-native-gesture-handler';
+import 'react-native-reanimated';
 
 const index = () => {
     const router = useRouter();

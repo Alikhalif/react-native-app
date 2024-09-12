@@ -16,10 +16,10 @@ import ButtonGoogle from '../components/ButtonGoogle'
 const SignUp = () => {
 
   const router = useRouter();
-  const usernameRef = useRef();
-  const phoneRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
+  const usernameRef = useRef(null);
+  const phoneRef = useRef(null);
+  const passwordRef = useRef(null);
+  const passwordConfirmRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async () => {

@@ -13,9 +13,9 @@ import ScreenClient from '../../components/ScreenClient'
 const Profile = () => {
 
     const router = useRouter();
-    const usernameRef = useRef();
-    const phoneRef = useRef();
-    const emailRef = useRef();
+    const usernameRef = useRef(null);
+    const phoneRef = useRef(null);
+    const emailRef = useRef(null);
     const [loading, setLoading] = useState(false);
 
     const onSubmit = async () => {

@@ -14,17 +14,17 @@ import ScreenClient from '../../components/ScreenClient'
 const CreateDelivery = () => {
     const router = useRouter();
 
-    const usernameRef = useRef();
-    const phoneRef = useRef();
-    const cityRef = useRef();
-    const adressRef = useRef();
-    const priceRef = useRef();
-    const deliveryPriceRef = useRef();
-    const paymentMethodRef = useRef();
-    const commandNumberRef = useRef();
-    const packageRef = useRef();
-    const clientRef = useRef();
-    const commentRef = useRef();
+    const usernameRef = useRef(null);
+    const phoneRef = useRef(null);
+    const cityRef = useRef(null);
+    const adressRef = useRef(null);
+    const priceRef = useRef(null);
+    const deliveryPriceRef = useRef(null);
+    const paymentMethodRef = useRef(null);
+    const commandNumberRef = useRef(null);
+    const packageRef = useRef(null);
+    const clientRef = useRef(null);
+    const commentRef = useRef(null);
 
     const [loading, setLoading] = useState(false);
 
@@ -46,7 +46,7 @@ const CreateDelivery = () => {
 
                 <ScrollView>
                     <View style={styles.form}>
-                    
+                    <Text style={styles.titleText}>Create New Delivery</Text>
 
                     <View style={{gap:10}}>
                         <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
@@ -189,6 +189,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         paddingHorizontal: wp(5),
         paddingBottom: 10,
+    },
+    titleText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: theme.colors.text,
     },
     cardImage:{
         flexDirection: 'row',

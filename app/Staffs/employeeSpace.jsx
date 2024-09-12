@@ -1,76 +1,47 @@
-import { View, Text, StyleSheet, FlatList, Image, Button, TouchableOpacity } from 'react-native'
-import React, { useRef } from 'react'
-// import { ListItem } from 'react-native-elements';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import React, { useRef, useState } from 'react';
 import { theme } from '../../constants/Colors';
 import Icon from '../../assets/icons';
-import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import BottomSheet from '../../components/BottomSheet';
 
 
 const EmployeeSpace = () => {
-    const modalRef = useRef<BottomSheetModal>(null)
-    
+
+    const [status, setStatus] = useState(false);
+
     return (
-        // Bottom Sheet
-        <BottomSheetModalProvider>
-
-            <View style={styles.container}>
-                {/* Title and Add Button */}
-                <View style={styles.titleContainer}>
-                    <Text style={styles.titleText}>List Employees</Text>
-                    <TouchableOpacity 
-                        onPress={() => { modalRef.current?.present()}}
-                        style={styles.addButton}
-                    >
-                        <Icon name="plus" size={16} color="white" />
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.card}>
-                    <Image 
-                        style={styles.profileImage}
-                        source={require('../../assets/images/profile.jpg')}
-                    />
-                    <View>
-                        <Text style={styles.text}>Abdelali Khalif</Text>
-                        <Text style={styles.username}>@abdelalikhalif</Text>
+            // <View>
+                <>
+                <View style={styles.container}>
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.titleText}>List Employees</Text>
+                        <TouchableOpacity 
+                            onPress={() => setStatus(true)}
+                            style={styles.addButton} 
+                        >
+                            <Icon name="plus" size={16} color="white" />
+                        </TouchableOpacity>
                     </View>
-                    
-                </View>
 
-                {/* /// */}
-                <View style={styles.card}>
-                    <Image 
-                        style={styles.profileImage}
-                        source={require('../../assets/images/profile.jpg')}
-                    />
-                    <View>
-                        <Text style={styles.text}>Abdelali Khalif</Text>
-                        <Text style={styles.username}>@abdelalikhalif</Text>
+                    {/* Employee Card Example */}
+                    <View style={styles.card}>
+                        <Image style={styles.profileImage} source={require('../../assets/images/profile.jpg')} />
+                        <View>
+                            <Text style={styles.text}>Abdelali Khalif</Text>
+                            <Text style={styles.username}>@abdelalikhalif</Text>
+                        </View>
                     </View>
-                    
                 </View>
-                <View style={styles.card}>
-                    <Image 
-                        style={styles.profileImage}
-                        source={require('../../assets/images/profile.jpg')}
-                    />
-                    <View>
-                        <Text style={styles.text}>Abdelali Khalif</Text>
-                        <Text style={styles.username}>@abdelalikhalif</Text>
-                    </View>
-                    
-                </View>
-            </View>
+                
 
+                {/* BottomSheetModal */}
+                
+                { status && <BottomSheet title="Create Employee" setStatus={setStatus}/>}
+                
+                </>
 
-            <BottomSheetModal ref={modalRef}>
-
-            </BottomSheetModal>
-
-        </BottomSheetModalProvider>
-        
-    )
-}
+    );
+};
 
 export default EmployeeSpace;
 
@@ -84,8 +55,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 5, // Add padding inside the card
-        margin:5,
         marginBottom: 15,
     },
     titleText: {
@@ -99,59 +68,31 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: theme.colors.primary,
-        borderRadius: 30, // Fully rounded button
-    },
-    addButtonText: {
-        color: '#fff',
-        fontSize: 16,
-        marginLeft: 5,
-        fontWeight: 'bold',
+        borderRadius: 25,
     },
     profileImage: {
         width: 70,
         height: 70,
-        margin: 5,
-        borderRadius: 35, // Fully rounded profile image
-        marginRight: 15, // Space between the image and text
+        borderRadius: 35,
+        marginRight: 15,
     },
-    card:{
+    card: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: 'white', // Use primary theme color
-        borderRadius: 15, // Softer border radius for the card
-        padding: 5, // Add padding inside the card
-        margin:5,
-        shadowColor: '#000', // Shadow for iOS
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
-        shadowRadius: 6,
-        elevation: 5, // Elevation for Android
-        
-
+        backgroundColor: 'white',
+        borderRadius: 15,
+        padding: 10,
+        marginVertical: 5,
+        elevation: 5,
     },
-    text:{
-        margin: 5,
-        // color: 'white',
+    text: {
         fontSize: 20,
-        color: theme.colors.text, // White text to contrast with the primary background
-        fontWeight: 'bold'
-    },
-    username:{
-        marginLeft:5,
-        fontSize: 15,
-        color: 'gray', 
-        fontWeight: 'bold'
-    },
-    header: {
-        fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 15,
-        textAlign: 'center',
+        color: theme.colors.text,
     },
-    userImage: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-        marginRight: 10,
-    }
+    username: {
+        fontSize: 15,
+        color: 'gray',
+        fontWeight: 'bold',
+    },
 });

@@ -16,8 +16,8 @@ import ButtonGoogle from '../components/ButtonGoogle'
 const Login = () => {
 
   const router = useRouter();
-  const phoneRef = useRef();
-  const passwordRef = useRef();
+  const phoneRef = useRef(null);
+  const passwordRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async () => {

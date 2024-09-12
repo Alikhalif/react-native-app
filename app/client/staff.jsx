@@ -18,7 +18,7 @@ const Staff = () => {
                         <Icon name="next"/>
                     </View>
                 </Pressable>
-                <Pressable onPress={() => router.back()} style={styles.button}>
+                <Pressable onPress={() => router.push('Staffs/clientSpace')} style={styles.button}>
                     <View style={styles.card}>
                         <Text>Client Space </Text>
                         <Icon name="next"/>

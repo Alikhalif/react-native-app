@@ -14,20 +14,22 @@ const _layout = () => {
     <Tabs
       tabBar={props => <TabBar {...props}/>}
     >
+
       <Tabs.Screen
-        name="createDelivery"
+        name="home"
         options={{
-          title:"CreateDelivery",
+          title:"Home",
           headerShown: false,
         }}
       />
-      <Tabs.Screen
+      
+      {/* <Tabs.Screen
         name="profile"
         options={{
           title:"Profile",
           headerShown: false,
         }}
-      />
+      /> */}
       <Tabs.Screen
         name="staff"
         options={{
@@ -36,12 +38,38 @@ const _layout = () => {
         }}
       />
       <Tabs.Screen
+        name="deliveries"
+        options={{
+          title:"Deliveries",
+          headerShown: false,
+        }}
+      />
+      
+      
+      <Tabs.Screen
         name="notification"
         options={{
           title:"Notification",
           headerShown: false,
         }}
       />
+
+      <Tabs.Screen
+        name="more"
+        options={{
+          title:"More",
+          headerShown: false,
+        }}
+      />
+      
+      {/* <Tabs.Screen
+        name="plan"
+        options={{
+          title:"Plan",
+          headerShown: false,
+        }}
+      /> */}
+
     </Tabs>
   )
 }

@@ -21,7 +21,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async () => {
-    router.push('client/profile')
+    router.push('client/home')
     // if(!phoneRef.current || !passwordRef.current){
     //   Alert.alert('Login', "please fill all the fields!")
     //   return;
@@ -49,7 +49,6 @@ const Login = () => {
               Phone
             </Text>
             <Input
-              
               placeholder='Enter your phone'
               onChabgeText={value=> phoneRef.current = value}
 
@@ -86,7 +85,7 @@ const Login = () => {
         </View>
 
         <View>
-          <ButtonGoogle/>
+          <ButtonGoogle />
         </View>
       </View>
     </ScreenWrapper>

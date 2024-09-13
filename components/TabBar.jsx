@@ -10,14 +10,13 @@ import { Route } from 'expo-router/build/Route';
 const TabBar = ({ state, descriptors, navigation }) => {
 
     const icons = {
-        // home: (props)=> <Feather name='home' size={26} color='gray' {...props}/>,
+        home: (props)=> <Feather name='home' size={26} color='gray' {...props}/>,
         staff: (props)=> <Ionicons name="people-outline" size={26} color="gray" {...props} />,
-        createDelivery: (props)=> <Fontisto name="broken-link" size={26} color={theme.colors.text} {...props} />,
+        deliveries: (props)=> <Fontisto name="broken-link" size={26} color="gray" {...props} />,
         notification: (props)=> <Ionicons name="notifications-outline" size={26} color="gray" {...props} />,
-        // more: (props)=> <Feather name="more-horizontal" size={26} color="gray" {...props} />,
+        more: (props)=> <Feather name="more-horizontal" size={26} color="gray" {...props} />,
         // plan: (props)=> <Feather name='cup' size={26} color='gray' {...props}/>,
-        profile: (props)=> <Ionicons name="person-circle-outline" size={26} color={theme.colors.text} {...props}/>,
-
+        // profile: (props)=> <Ionicons name="person-circle-outline" size={26} color={theme.colors.text} {...props}/>,
 
     }
 
@@ -32,8 +31,8 @@ const TabBar = ({ state, descriptors, navigation }) => {
                 ? options.title
                 : route.name;
 
-            console.log(route.name);    
-            if(['_sitemap', '+not-found', 'login', 'signUp', 'welcome', 'index', 'congrats', 'clients'].includes(route.name)) return null;
+            console.log(route.name);
+            if(['_sitemap', '+not-found', 'login', 'signUp', 'welcome', 'index', 'congrats', 'clients', 'createDelivery'].includes(route.name)) return null;
 
             const isFocused = state.index === index;
 

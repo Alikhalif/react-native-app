@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, Pressable, Alert } from 'react-native'
+import { View, Text, StyleSheet, Image, Pressable, Alert, ScrollView } from 'react-native'
 import React, { useRef, useState } from 'react'
 import ScreenWrapper from '../components/ScreenWrapper'
 import Home from '../assets/icons/Home'
@@ -32,90 +32,94 @@ const SignUp = () => {
     <ScreenWrapper bg='white'>
       {/* <Text>SignUp</Text> */}
       {/* <Home strokeWidth={2}/> */}
-      
-      <View style={styles.container}>
+      <View style={{paddingHorizontal: wp(5)}}>
         <ButtonBack router={router}/>
+        <ScrollView>
+          <View style={styles.container}>
+            
 
-        {/* welcome */}
-        <View>
-          <Text style={styles.welcomText}>Hey,</Text>
-          <Text style={styles.welcomText}>Welcome Back</Text>
-        </View>
+            {/* welcome */}
+            <View>
+              <Text style={styles.welcomText}>Hey,</Text>
+              <Text style={styles.welcomText}>Welcome Back</Text>
+            </View>
 
-        <Text style={{fontSize: hp(2), color: theme.colors.text}}>
-          Create your account
-        </Text>
-        <View style={styles.form}>
-          
-
-          <View style={{gap:10}}>
-            <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
-              Username
+            <Text style={{fontSize: hp(2), color: theme.colors.text}}>
+              Create your account
             </Text>
-            <Input
+            <View style={styles.form}>
               
-              placeholder='Enter your username'
-              onChabgeText={value=> usernameRef.current = value}
-            />
+
+              <View style={{gap:10}}>
+                <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
+                  Username
+                </Text>
+                <Input
+                  
+                  placeholder='Enter your username'
+                  onChabgeText={value=> usernameRef.current = value}
+                />
+              </View>
+
+              <View style={{gap:10}}>
+                <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
+                  Phone
+                </Text>
+                <Input
+                  
+                  placeholder='Enter your username'
+                  onChabgeText={value=> phoneRef.current = value}
+
+                />
+              </View>
+
+              <View style={{gap:10}}>
+                <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
+                  Password
+                </Text>
+                <Input
+                  
+                  placeholder='Enter your username'
+                  secureTextEntry
+                  onChabgeText={value=> passwordRef.current = value}
+
+                />
+              </View>
+
+              <View style={{gap:10}}>
+                <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
+                  Confirm password
+                </Text>
+                <Input
+                  
+                  placeholder='Enter your username'
+                  secureTextEntry
+                  onChabgeText={value=> passwordConfirmRef.current = value}
+
+                />
+              </View>
+
+              <Button title='Register' loading={loading} onPress={onSubmit} />
+            </View>
+
+            {/* footer */}
+            <View style={styles.footer}>
+              <Text style={styles.footerText}>
+                Have an account?
+              </Text>
+              <Pressable>
+                <Text style={[styles.loginText, {color: theme.colors.primaryDark, fontWeight: theme.fonts.semibold}]}
+                      onPress={() => router.push('login')}>
+                  Login
+                </Text>
+              </Pressable>
+            </View>
+
+            <View>
+              <ButtonGoogle/>
+            </View>
           </View>
-
-          <View style={{gap:10}}>
-            <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
-              Phone
-            </Text>
-            <Input
-              
-              placeholder='Enter your username'
-              onChabgeText={value=> phoneRef.current = value}
-
-            />
-          </View>
-
-          <View style={{gap:10}}>
-            <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
-              Password
-            </Text>
-            <Input
-              
-              placeholder='Enter your username'
-              secureTextEntry
-              onChabgeText={value=> passwordRef.current = value}
-
-            />
-          </View>
-
-          <View style={{gap:10}}>
-            <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
-              Confirm password
-            </Text>
-            <Input
-              
-              placeholder='Enter your username'
-              secureTextEntry
-              onChabgeText={value=> passwordConfirmRef.current = value}
-
-            />
-          </View>
-
-          <Button title='Register' loading={loading} onPress={onSubmit} />
-        </View>
-
-        {/* footer */}
-        <View style={styles.footer}>
-          <Text style={styles.footerText}>
-            Have an account?
-          </Text>
-          <Pressable>
-            <Text style={[styles.loginText, {color: theme.colors.primaryDark, fontWeight: theme.fonts.semibold}]}
-                  onPress={() => router.push('login')}>
-              Login
-            </Text>
-          </Pressable>
-        </View>
-
-        <View>
-          <ButtonGoogle/>
-        </View>
+        </ScrollView>
       </View>
     </ScreenWrapper>
   )
@@ -126,8 +130,8 @@ export default SignUp
 const styles = StyleSheet.create({
   container:{
     flex: 1,
-    gap: 45,
-    paddingHorizontal: wp(5)
+    gap: 30,
+    // paddingHorizontal: wp(5)
   },
   welcomText:{
     fontSize: hp(4),

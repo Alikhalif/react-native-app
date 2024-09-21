@@ -62,13 +62,6 @@ const _layout = () => {
         }}
       />
       
-      {/* <Tabs.Screen
-        name="plan"
-        options={{
-          title:"Plan",
-          headerShown: false,
-        }}
-      /> */}
 
     </Tabs>
   )

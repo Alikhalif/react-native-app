@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-const PricingCard = ({ title, price, storage, users, sendUp }) => {
+const PricingCard = ({ title, price, nbrEmployee, nbrClient, delivery }) => {
     return (
         <View style={styles.PricingCard}>
         <View>
@@ -10,9 +10,9 @@ const PricingCard = ({ title, price, storage, users, sendUp }) => {
         </View>
         {/* Features */}
         <View style={styles.cardFeatures}>
-            <Text>{storage}</Text>
-            <Text>{users} users in total</Text>
-            {sendUp && <Text>Send up to {sendUp}</Text>}
+            <Text>{nbrEmployee}</Text>
+            <Text>{nbrClient} users in total</Text>
+            {delivery && <Text>Send up to {delivery}</Text>}
         </View>
         <Button title="READ MORE" onPress={() => {}} />
         </View>

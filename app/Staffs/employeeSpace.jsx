@@ -3,6 +3,11 @@ import React, { useRef, useState } from 'react';
 import { theme } from '../../constants/Colors';
 import Icon from '../../assets/icons';
 import BottomSheet from '../../components/BottomSheet';
+import ScreenWrapper from '../../components/ScreenWrapper';
+import ButtonBack from '../../components/ButtonBack';
+import { router } from 'expo-router';
+import { wp } from '../../helpers/common';
+import HeaderBar from '../../components/HeaderBar';
 
 
 const EmployeeSpace = () => {
@@ -11,34 +16,36 @@ const EmployeeSpace = () => {
 
     return (
             // <View>
-                <>
-                <View style={styles.container}>
-                    <View style={styles.titleContainer}>
-                        <Text style={styles.titleText}>List Employees</Text>
-                        <TouchableOpacity 
-                            onPress={() => setStatus(true)}
-                            style={styles.addButton} 
-                        >
-                            <Icon name="plus" size={16} color="white" />
-                        </TouchableOpacity>
-                    </View>
+                <ScreenWrapper bg='white'>
+                    <HeaderBar title="Employee Space" router={router} />
+                    <View style={styles.container}>
+                        {/* <ButtonBack router={router}/> */}
+                        <View style={styles.titleContainer}>
+                            <Text style={styles.titleText}>List Employees</Text>
+                            <TouchableOpacity 
+                                onPress={() => setStatus(true)}
+                                style={styles.addButton} 
+                            >
+                                <Icon name="plus" size={16} color="white" />
+                            </TouchableOpacity>
+                        </View>
 
-                    {/* Employee Card Example */}
-                    <View style={styles.card}>
-                        <Image style={styles.profileImage} source={require('../../assets/images/profile.jpg')} />
-                        <View>
-                            <Text style={styles.text}>Abdelali Khalif</Text>
-                            <Text style={styles.username}>@abdelalikhalif</Text>
+                        {/* Employee Card Example */}
+                        <View style={styles.card}>
+                            <Image style={styles.profileImage} source={require('../../assets/images/profile.jpg')} />
+                            <View>
+                                <Text style={styles.text}>Abdelali Khalif</Text>
+                                <Text style={styles.username}>@abdelalikhalif</Text>
+                            </View>
                         </View>
                     </View>
-                </View>
-                
+                    
 
-                {/* BottomSheetModal */}
+                    {/* BottomSheetModal */}
+                    
+                    { status && <BottomSheet title="Create Employee" setStatus={setStatus}/>}
                 
-                { status && <BottomSheet title="Create Employee" setStatus={setStatus}/>}
-                
-                </>
+                </ScreenWrapper>
 
     );
 };
@@ -48,7 +55,7 @@ export default EmployeeSpace;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 10,
+        paddingHorizontal: wp(5),
         backgroundColor: '#fff',
     },
     titleContainer: {

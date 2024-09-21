@@ -1,50 +1,65 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import React, { useRef, useState } from 'react';
 import { theme } from '../../constants/Colors';
 import Icon from '../../assets/icons';
-import BottomSheet from '../../components/BottomSheet';
+import BottomSheet from '../../components/BottomSheet'; 
+import ScreenWrapper from '../../components/ScreenWrapper';
+import { hp, wp } from '../../helpers/common';
+import ButtonBack from '../../components/ButtonBack';
+import { router } from 'expo-router';
+import HeaderBar from '../../components/HeaderBar';
 
 const ClientSpace = () => {
     const [status, setStatus] = useState(false);
 
     return (
-        <>
-        <View style={styles.container}>
-            <View style={styles.titleContainer}>
-                <Text style={styles.titleText}>List Client</Text>
-                <TouchableOpacity 
-                    onPress={() => setStatus(true)}
-                    style={styles.addButton} 
-                >
-                    <Icon name="plus" size={16} color="white" />
-                </TouchableOpacity>
-            </View>
-
-            {/* Employee Card Example */}
-            <View style={styles.card}>
-                <Image style={styles.profileImage} source={require('../../assets/images/profile.jpg')} />
-                <View>
-                    <Text style={styles.text}>Abdelali Khalif</Text>
-                    <Text style={styles.username}>@abdelalikhalif</Text>
+        <ScreenWrapper bg='white'>
+            <HeaderBar title="Client Space" router={router} />
+         {/* <ScreenWrapper bg='white'> */}
+            
+            <View style={styles.container}>
+                {/* <ButtonBack router={router}/> */}
+                
+                <View style={styles.titleContainer}>
+                    <Text style={styles.titleText}>List Client</Text>
+                    <TouchableOpacity 
+                        onPress={() => setStatus(true)}
+                        style={styles.addButton} 
+                    >
+                        <Icon name="plus" size={16} color="white" />
+                    </TouchableOpacity>
                 </View>
-            </View>
-            <View style={styles.card}>
-                <Image style={styles.profileImage} source={require('../../assets/images/profile.jpg')} />
-                <View>
-                    <Text style={styles.text}>Abdelali Khalif</Text>
-                    <Text style={styles.username}>@abdelalikhalif</Text>
-                </View>
+
+                <ScrollView>
+                    <View style={styles.card}>
+                        <Image style={styles.profileImage} source={require('../../assets/images/profile.jpg')} />
+                        <View>
+                            <Text style={styles.text}>Abdelali Khalif</Text>
+                            <Text style={styles.username}>@abdelalikhalif</Text>
+                        </View>
+                    </View>
+                    <View style={styles.card}>
+                        <Image style={styles.profileImage} source={require('../../assets/images/profile.jpg')} />
+                        <View>
+                            <Text style={styles.text}>Abdelali Khalif</Text>
+                            <Text style={styles.username}>@abdelalikhalif</Text>
+                        </View>
+                    </View>
+                
+                </ScrollView>
+                {/* Employee Card Example */}
+                
+
+                
+                
+                
             </View>
 
-            
-            
-            
-        </View>
-
-        {/* BottomSheetModal */}
-            
-        { status && <BottomSheet title="Create client" setStatus={setStatus}/>}
-        </>
+            {/* BottomSheetModal */}
+                
+            { status && <BottomSheet title="Create client" setStatus={setStatus}/>}
+         {/* </ScreenWrapper> */}
+        </ScreenWrapper>
         
     );
 }
@@ -54,7 +69,8 @@ export default ClientSpace;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 10,
+        paddingHorizontal: wp(5),
+        paddingVertical: hp(2),
         backgroundColor: '#fff',
     },
     titleContainer: {

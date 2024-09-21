@@ -20,6 +20,9 @@ const _layout = () => {
             <Stack.Screen name='login' options={{headerShown: false}}/>
             <Stack.Screen name='signUp' options={{headerShown: false}}/>
             <Stack.Screen name='congrats' options={{headerShown: false}}/>
+            <Stack.Screen name='client' options={{headerShown: false}}/>
+            <Stack.Screen name='Staffs' options={{headerShown: false}}/>
+            <Stack.Screen name='Moretab' options={{headerShown: false}}/>
 
             {/* <Stack.Screen /> */}
         </Stack>

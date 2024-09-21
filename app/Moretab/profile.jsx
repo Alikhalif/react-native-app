@@ -9,6 +9,7 @@ import { useRouter } from 'expo-router'
 import ButtonBack from '../../components/ButtonBack'
 import Icon from '../../assets/icons'
 import ScreenClient from '../../components/ScreenClient'
+import HeaderBar from '../../components/HeaderBar'
 
 const Profile = () => {
 
@@ -32,78 +33,81 @@ const Profile = () => {
     }
 
     return (
-        <ScreenClient bg="white">
-            <ScrollView>
-                <View style={styles.container}>
+        <ScreenWrapper bg="white">
+            <HeaderBar title="Profile" router={router} />
+            <View >
                 {/* <ButtonBack router={router}/> */}
+                <ScrollView>
+                    <View style={styles.container}>
+                    {/* <ButtonBack router={router}/> */}
 
-                    <View style={styles.cardImage}>
-                        <Image
-                            style={styles.profileImage}
-                            contentFit="cover"
-                            source={require("../../assets/images/profile.jpg")}
-                        />
+                        <View style={styles.cardImage}>
+                            <Image
+                                style={styles.profileImage}
+                                contentFit="cover"
+                                source={require("../../assets/images/profile.jpg")}
+                            />
 
-                        <TouchableOpacity style={styles.cameraIconContainer} onPress={handleChangeProfileImage}>
-                            <Icon name="camera"  />
-                        </TouchableOpacity>
+                            <TouchableOpacity style={styles.cameraIconContainer} onPress={handleChangeProfileImage}>
+                                <Icon name="camera"  />
+                            </TouchableOpacity>
+                        </View>
+
+
+                    <Text style={{fontSize: hp(3), color: theme.colors.text}}>
+                        Personal information
+                    </Text>
+                    <Text style={{fontSize: hp(2), color: theme.colors.text}}>
+                        Details about your personal information 
+                    </Text>
+                    <View style={styles.form}>
+                    
+
+                        <View style={{gap:10}}>
+                            <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
+                            Username
+                            </Text>
+                            <Input
+                            
+                            placeholder='Enter your username'
+                            onChabgeText={value=> usernameRef.current = value}
+                            />
+                        </View>
+
+                        <View style={{gap:10}}>
+                            <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
+                            Phone
+                            </Text>
+                            <Input
+                            
+                            placeholder='Enter your phone'
+                            onChabgeText={value=> phoneRef.current = value}
+
+                            />
+                        </View>
+
+                        <View style={{gap:10}}>
+                            <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
+                            Email
+                            </Text>
+                            <Input
+                                placeholder='Enter your email'
+                                onChabgeText={value=> emailRef.current = value}
+                            />
+                        </View>
+
+                        <Button title='Save Changes' loading={loading} onPress={onSubmit} />
                     </View>
 
+                    
 
-                <Text style={{fontSize: hp(3), color: theme.colors.text}}>
-                    Personal information
-                </Text>
-                <Text style={{fontSize: hp(2), color: theme.colors.text}}>
-                    Details about your personal information 
-                </Text>
-                <View style={styles.form}>
-                
+                    
 
-                    <View style={{gap:10}}>
-                        <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
-                        Username
-                        </Text>
-                        <Input
-                        
-                        placeholder='Enter your username'
-                        onChabgeText={value=> usernameRef.current = value}
-                        />
-                    </View>
-
-                    <View style={{gap:10}}>
-                        <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
-                        Phone
-                        </Text>
-                        <Input
-                        
-                        placeholder='Enter your phone'
-                        onChabgeText={value=> phoneRef.current = value}
-
-                        />
-                    </View>
-
-                    <View style={{gap:10}}>
-                        <Text style={{fontSize: hp(1.7), color: theme.colors.text}}>
-                        Email
-                        </Text>
-                        <Input
-                            placeholder='Enter your email'
-                            onChabgeText={value=> emailRef.current = value}
-                        />
-                    </View>
-
-                    <Button title='Save Changes' loading={loading} onPress={onSubmit} />
                 </View>
-
-                
-
-                
-
+                </ScrollView>
             </View>
-            </ScrollView>
             
-            
-        </ScreenClient>
+        </ScreenWrapper>
     )
 }
 
@@ -113,7 +117,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        paddingHorizontal: wp(5)
+        paddingHorizontal: wp(5),
+        
     },
     cardImage:{
         flexDirection: 'row',

@@ -32,14 +32,14 @@ const ClientSpace = () => {
 
                 <ScrollView>
                     <View style={styles.card}>
-                        <Image style={styles.profileImage} source={require('../../assets/images/profile.jpg')} />
+                        <Image style={styles.profileImage} source={require('../../assets/images/profile.png')} />
                         <View>
                             <Text style={styles.text}>Abdelali Khalif</Text>
                             <Text style={styles.username}>@abdelalikhalif</Text>
                         </View>
                     </View>
                     <View style={styles.card}>
-                        <Image style={styles.profileImage} source={require('../../assets/images/profile.jpg')} />
+                        <Image style={styles.profileImage} source={require('../../assets/images/profile.png')} />
                         <View>
                             <Text style={styles.text}>Abdelali Khalif</Text>
                             <Text style={styles.username}>@abdelalikhalif</Text>

@@ -22,7 +22,7 @@ const Clients = () => {
                 <Image
                 style={styles.groupPosition}
                 contentFit="cover"
-                source={require("../assets/images/profile.jpg")}
+                source={require("../assets/images/profile.png")}
                 />
             </View>
         </ScreenWrapper>

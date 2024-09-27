@@ -45,7 +45,7 @@ const Profile = () => {
                             <Image
                                 style={styles.profileImage}
                                 contentFit="cover"
-                                source={require("../../assets/images/profile.jpg")}
+                                source={require("../../assets/images/profile.png")}
                             />
 
                             <TouchableOpacity style={styles.cameraIconContainer} onPress={handleChangeProfileImage}>
